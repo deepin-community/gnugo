@@ -1,0 +1,26 @@
+--- gnugo/engine/liberty.h	2009-02-17 22:41:31.000000000 +0100
++++ gnugo/engine/liberty.h	2020-07-25 08:57:33.627875631 +0200
+@@ -857,8 +857,8 @@
+ extern struct worm_data worm[BOARDMAX];
+ 
+ /* Unconditionally meaningless moves. */
+-int meaningless_black_moves[BOARDMAX];
+-int meaningless_white_moves[BOARDMAX];
++extern int meaningless_black_moves[BOARDMAX];
++extern int meaningless_white_moves[BOARDMAX];
+ 
+ /* Surround cache (see surround.c) */
+ 
+--- gnugo/engine/unconditional.c	2009-02-17 22:41:31.000000000 +0100
++++ gnugo/engine/unconditional.c	2020-07-25 08:57:49.779957597 +0200
+@@ -29,6 +29,10 @@
+ 
+ #include "liberty.h"
+ 
++/* Unconditionally meaningless moves. */
++int meaningless_black_moves[BOARDMAX];
++int meaningless_white_moves[BOARDMAX];
++
+ /* Capture as many strings of the given color as we can. Played stones
+  * are left on the board and the number of played stones is returned.
+  * Strings marked in the exceptions array are excluded from capturing
